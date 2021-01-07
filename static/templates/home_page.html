@@ -1,0 +1,497 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <title>Zoddock</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Travello template project" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}"/>
+    <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'styles/yoo.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}"/>
+    <linkrel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'static/css/ionicons.min.css' %}" />
+    <linkhref="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet"type="text/css"/>
+
+    <!-- JS -->
+    <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' %}"></script>
+    <script>
+      window.Modernizr ||
+        document.write(
+          <script src=  "{% static 'js/vendor/modernizr-2.8.3.min.js' %}" ></script>
+
+    </script>
+  </head>
+
+  <body>
+
+    <div class="header_top">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6">
+            <span>
+              <i class="flaticon-bag"></i>
+              <a href="#">Buy Gift Card</a>
+            </span>
+            <span>
+              <i class="flaticon-bag"></i>
+              <a href="#">Store Locator</a>
+            </span>
+          </div>
+
+
+
+          <div class="col-xl-6 col-lg-6 text-lg-right">
+            <span>
+              <i class="flaticon-profile"></i>
+              {% if user.is_authenticated %}
+               <span><a href="accounts/logout">LogOut<a></span>
+              <span> Hello, {{user.first_name}}</span>
+              {% else %}
+              <span ><a id="login-show" class="login" >Sign</a> In or</span> <a href="accounts/register" id="signup-show">Create Account</a>
+              {% endif %}
+            </span>
+
+            <span>
+              <div class="shopping-card">
+                <a href="#"><i class="flaticon-bag"></i></a>
+                <span>0</span>
+              </div>
+              <a href="#">Shopping Cart</a>
+            </span>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="login-modal-wrapper" id="login-modal">
+    <div class="modal-spad">
+      <div class="close-modal">
+        <i class="fa fa-2x fa-times fa-times-button"></i>
+      </div>
+      <div id="login-form-div">
+        <h2>Log in with email</h2>
+        <form action="accounts/login" method="post">
+         {% csrf_token %}
+          <input class="form-control"  type="text" name="username" placeholder="Username">
+          <input class="form-control" type="password" name="password" placeholder="Password">
+          <button type="submit" class="login-button"><div id="submit-btn" >Login</div></button>
+        </form>
+        <div>
+          {% for message in messages %}
+          <h3> {{message}} </h3>
+          {% endfor %}
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+      <div class="brand_row ">
+        <div class=" text-center">
+          <div class="brand_row_text ">
+            <h2>ZODDOCK</h2>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="menu-container">
+        <div class="menu">
+          <ul>
+            <li>
+              <a href="{% url 'women_jeans_page' %}">WOMEN</a>
+              <ul>
+                <li>
+                  <a href="http://marioloncarek.com">CLOTHING</a>
+                  <ul>
+                    <li><a href="http://marioloncarek.com">View All Clothing</a></li>
+                    <li><a href="#">Dresses</a></li>
+                    <li><a href="{% url 'women_jeans_page' %}">Jeans</a></li>
+                    <li><a href="#">Tops</a></li>
+                    <li><a href="#">Skirts</a></li>
+                    <li><a href="#">Trousers</a></li>
+                    <li><a href="#">Playsits & JumpSuits</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">ACCESSORIES</a>
+                  <ul>
+                    <li><a href="#">View All Accessories</a></li>
+                    <li><a href="#">Bags & Purses</a></li>
+                    <li><a href="#">Belts</a></li>
+                    <li><a href="#">NeckLace</a></li>
+                    <li><a href="#">Watches</a></li>
+                    <li><a href="#">Hats Gloves & Scarves</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">SHOES & BOOTS</a>
+                  <ul>
+                    <li><a href="#">View All Shoes & Boots</a></li>
+                    <li><a href="#">Heels</a></li>
+                    <li><a href="#">Boots</a></li>
+                    <li><a href="#">Sandals</a></li>
+                    <li><a href="#">Trainers</a></li>
+                    <li><a href="#">Beach</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">MUST HAVES</a>
+                  <ul>
+                    <li><a href="#"> Women WFH Wardrobe</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="http://marioloncarek.com">MEN</a>
+              <ul>
+                <li>
+                  <a href="#">CLOTHING</a>
+                  <ul>
+                    <li><a href="#">View All Clothing</a></li>
+                    <li><a href="#">Hoodies and SweatShirts</a></li>
+                    <li><a href="#">Jeans</a></li>
+                    <li><a href="#">Tops and T-Shirts</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">ACCESSORIES</a>
+                  <ul>
+                    <li><a href="#">View All Accessories</a></li>
+                    <li><a href="#">Sunglasses</a></li>
+                    <li><a href="#">Bags And Wallets</a></li>
+                    <li><a href="#">Ear Phones</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">SHOES & BOOTS</a>
+                  <ul>
+                    <li><a href="#">View All Shoes & Boots</a></li>
+                    <li><a href="#">Boots</a></li>
+                    <li><a href="#">Loafers</a></li>
+                    <li><a href="#">Trainers</a></li>
+                    <li><a href="#">All Stars</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">MUST HAVES</a>
+                <ul>
+                  <li><a href="#"> Men WFH Wardrobe</a></li>
+                </ul>
+              </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="http://marioloncarek.com">BEUTY</a>
+              <ul>
+                <li>
+                  <a href="#">MAKE UP</a>
+                  <ul>
+                    <li><a href="#">View All Make Up</a></li>
+                    <li><a href="#">Eye</a></li>
+                    <li><a href="#">Lips</a></li>
+                    <li><a href="#">Nails</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">ACCESSORIES</a>
+                  <ul>
+                    <li><a href="#">View All Accessories</a></li>
+                    <li><a href="#">Make Up Bag</a></li>
+                    <li><a href="#">Tools</a></li>
+                    <li><a href="#">Brushes And Blenders</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">COSMETICS</a>
+                  <ul>
+                    <li><a href="#">View All Cosmetics</a></li>
+                    <li><a href="#">Skin</a></li>
+                    <li><a href="#">Fragrance</a></li>
+                    <li><a href="#">Haircare</a></li>
+                    <li><a href="#">Training</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="http://marioloncarek.com">INSPIRATION</a>
+              <ul>
+                <li>
+                  <a href="#">INSPIRE ME</a>
+                  <ul>
+                    <li><a href="#">Trending News</a></li>
+                    <li><a href="#">Style Ethics</a></li>
+                    <li><a href="#">The LockDown</a></li>
+                    <li><a href="#">See All</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">THE EDIT</a>
+                  <ul>
+                    <li><a href="#">Woman</a></li>
+                    <li><a href="#">Man</a></li>
+                    <li><a href="#">Beauty</a></li>
+                    <li><a href="#">See All</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">COLLECTIONS</a>
+                  <ul>
+                    <li><a href="#">View All Cosmetics</a></li>
+                    <li><a href="#">Skin</a></li>
+                    <li><a href="#">Fragrance</a></li>
+                    <li><a href="#">Haircare</a></li>
+                    <li><a href="#">Training</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li><a href="http://marioloncarek.com">ZODDOCK CARES</a></li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+      <div class="parallax welcome_parallax">
+        <div
+class="parallax-window parallax_background"
+          data-parallax="scroll"
+          data-speed="0.8"
+           style=" background-image: url({% static 'images/why.jpg' %});height: 100%; "></div>
+        <div class="welcome_inner">
+          <div class="container">
+            <div class="row welcome_row">
+
+              <!-- <div class="col-md-6  welcome_column">
+                <div class="welcome_item">
+                  <div class="welcome_image">
+                    <img src="{% static 'images/missed_you.png' %}" />
+                  </div>
+                </div>
+              </div> -->
+
+
+            {% for welcomeitem in welcomeitems %}
+              <div class="col-md-6  welcome_column">
+                <div class="welcome_item">
+                  <div class="welcome_image">
+                    <img src="{{welcomeitem.image.url}}" />
+                  </div>
+                </div>
+                {% if welcomeitem.readmorebutton %}
+                <div class="text-center read-more-btn-div">
+                  <a class="btn btn-outline-light read-more-btn"><b> READ MORE</b></a>
+                </div>
+                {% endif %}
+              </div>
+            {% endfor %}
+              <!-- <div class="col-md-6  welcome_column">
+                <div class="welcome_item">
+                  <div class="welcome_image">
+                    <img src="{% static 'images/good_to_see_you.png' %}" />
+                  </div>
+                </div>
+                <div class="good_to_see_you_div">
+                  <a>
+                    <svg width=""height="" fa-border="white" viewBox="0 0 16 16"class="bi bi-geo-alt good_to_see_youu_svg" fill="black"xmlns="http://www.w3.org/2000/svg">
+                      <path  class= "good_to_see_youu_path" fill-rule="evenodd"d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div> -->
+
+              <!-- <div class="col-md-6  welcome_column">
+                <div class="welcome_item">
+                  <div class="welcome_image">
+                    <img src="{% static 'images/missed_you.png' %}"/>
+                  </div>
+                </div>
+              </div> -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% comment %} <div class="parallax">
+        <div
+          class="parallax-window parallax_background"
+          data-parallax="scroll"
+          data-speed="0.8"
+          data-img-src="images/why.jpg"
+          style=" background-image: url({% static 'images/why.jpg' %});height: 100%;"
+        ></div>
+        <div class="advert_inner">
+          <div class="container">
+            <div class="row">
+              <div class="col text-center">
+                <div class="section_title">Simply Amazing Products</div>
+                <div class="section_subtitle">Why Choose Us?</div>
+              </div>
+            </div>
+
+            <div class="row advert_row">
+              <div class="col-lg-4 col-md-6 advert_col">
+                <div class="advert_item">
+                  <div class="advert_image">
+                    <img src="{% static 'images/why_1.jpg' %}" />
+                    <div
+                      class="advert_icon d-flex flex-column align-items-center justify-content-center"
+                    >
+                      <img src="{% static 'images/why_1.svg' %}" />
+                    </div>
+                  </div>
+                  <div class="advert_content text-center">
+                    <div class="advert_content_title">Fast Services</div>
+                    <div class="advert_content_text">
+                      <p>We Hear For You</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 advert_col">
+                <div class="advert_item">
+                  <div class="advert_image">
+                    <img src="{% static 'images/why_2.jpg' %}" />
+                    <div class="advert_icon d-flex flex-column align-items-center justify-content-center">
+                      <img src="{% static 'images/why_2.svg' %}" />
+                    </div>
+                  </div>
+                  <div class="advert_content text-center">
+                    <div class="advert_content_title">Fast Services</div>
+                    <div class="advert_content_text">
+                      <p>We Hear For You
+                      </p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 advert_col">
+                <div class="advert_item">
+                  <div class="advert_image">
+                    <img src="{% static 'images/why_3.jpg' %}" />
+                    <div class="advert_icon d-flex flex-column align-items-center justify-content-center">
+                      <img src="{% static 'images/why_3.svg' %}" />
+                    </div>
+                  </div>
+                  <div class="advert_content text-center">
+                    <div class="advert_content_title">Fast Services</div>
+                    <div class="advert_conetnt_text">
+                      <p>We Hear For You</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       {% endcomment %}
+
+
+
+     
+
+      <footer class="footer">
+
+        <div class="back_to_top_div">
+          <a class="btn btn-outline back_to_top_btn scroll_top" style="color:white;  font-weight:small ;font-size: bold;"><b> BACK TO TOP <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up back_to_top_svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+            <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8 3.707 5.354 6.354a.5.5 0 1 1-.708-.708l3-3z"/>
+          </svg></b></a>
+        </div>
+        <hr class="footer_socket"></hr>
+
+        <div class="container footer_container">
+                  <div class="row footer_row">
+                    <div class="col-lg-3 col-md-6 col-xs-1 col-sm-6 footer_column">
+                        <ul>
+                          <li ><h6 class="footer_header"> HELP</h6></li>
+                          <li class="footer_list_item">Customer Service</li>
+                          <li class="footer_list_item">SiteMap</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-xs-1 col-sm-6   footer_column">
+                        <ul>
+                          <li><h6 class="footer_header"> USEFUL INFORMATION</h6></li>
+                          <li class="footer_list_item">Terms Of Use</li>
+                          <li class="footer_list_item">Privacy And Cookies</li>
+                          <li class="footer_list_item">Media Enquiries</li>
+                          <li class="footer_list_item">Franchise</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-xs-1 col-sm-6  footer_column">
+                        <ul>
+                          <li class="footer_list_item"><h6 class="footer_header"> INSIDE ZODDOCK</h6></li>
+                          <li class="footer_list_item">About Us</li>
+                          <li class="footer_list_item">Careers At Zoddock</li>
+                          <li class="footer_list_item">Suppliers</li>
+                          <li class="footer_list_item">UG Gender Pay Report</li>
+                          <li class="footer_list_item">Modern Slavery Act</li>
+                          <li class="footer_list_item">Cruelty Free International</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-xs-1 col-sm-6  footer_column">
+                        <ul>
+                          <li><h6 class="footer_header"> PRESS RELEASES</h6></li>
+                          <li class="footer_list_item">Arthur Ryan</li>
+                          <li class="footer_list_item">Zoddock 50</li>
+                          <li class="footer_list_item">Zoddock * UNICEF</li>
+                        </ul>
+                    </div>
+                  </div>
+        </div>
+
+        <div class="footer_icon_container">
+        <div class="container">
+        <div class="row footer_icon_row">
+          <div class=" col-lg-6 col-md-6 col-xs-6 col-sm-6 footer_icon_row_brand_name" style="font-weight: lighter; color:black;">
+            2020 &#169; ZODDOCK STORES LIMITED
+          </div>
+          <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 footer_icon_column">
+              <div class="footer_icon_column_div">
+                  <i class="{% static 'fa fa-facebook footer_icon' %}"></i>
+                  <i class="fa fa-twitter footer_icon"></i>
+                  <i class="fa fa-instagram footer_icon"></i>
+                  <i class="fa fa-youtube-play footer_icon"></i>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src=" 'js/vendor/jquery-1.12.0.min.js' "><\/script>'
+        );
+    </script>
+
+
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+    <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+    <script src="{% static 'js/megamenu.js' %}"></script>
+  </body>
+</html>
+
+<!-- <img src="https://img.icons8.com/carbon-copy/100/000000/gift-card.png" style="height:2em; width: 1em;"/> -->

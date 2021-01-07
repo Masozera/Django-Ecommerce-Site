@@ -1,0 +1,512 @@
+{% load static %}
+{% load cart_template_tags %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <title>Travello</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Travello template project" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}"/>
+    <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'styles/yoo.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}"/>
+    <linkrel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'static/css/ionicons.min.css' %}" />
+    <linkhref="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet"type="text/css"/>
+
+    <!-- JS -->
+    {% comment %} <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' %}"></script> {% endcomment %}
+    <script>
+      window.Modernizr ||
+        document.write(
+          <script src=  "{% static 'js/vendor/modernizr-2.8.3.min.js' %}" ></script>
+        );
+    </script>
+
+    <script>
+      var hideable_shipping_form = $('.hideable_shipping_form'):
+      var use_default_shipping = document.querySelector("input[name=use_default_shipping]"):
+      use_default_shipping.addEventListener('change',function(){
+        if (this.checked){
+          hideable_shipping_form.hide():
+        } else {
+          hideable_shipping_form.show():
+        }
+      })
+    </script>
+  </head>
+  <body>
+
+    <div class="header_top">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-6 col-lg-6">
+              <span>
+								<i class="flaticon-bag"></i>
+								<a href="#">Buy Gift Card</a>
+              </span>
+              <span>
+								<i class="flaticon-bag"></i>
+								<a href="#">Store Locator</a>
+              </span>
+            </div>
+
+
+
+           <div class="col-xl-6 col-lg-6 text-lg-right">
+            <span>
+              <i class="flaticon-profile"></i>
+              {% if user.is_authenticated %}
+               <span><a href="accounts/logout">LogOut<a></span>
+              <span> Hello, {{user.first_name}}</span>
+              {% else %}
+              <a href="accounts/login">Sign</a> In or <a href="accounts/register">Create Account</a>
+              {% endif %}
+            </span>
+
+            <span>
+              <div class="shopping-card">
+               <a href="" ><i class="flaticon-bag"></i></a>
+                <span>{{request.user|cart_item_count}}</span>
+              </div>
+              <a href="#">Shopping Cart</a>
+            </span>
+          </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+        <div class="brand_row ">
+          <div class=" text-center">
+            <div class="brand_row_text ">
+              <h2>ZODDOCK</h2>
+            </div>
+          </div>
+        </div>
+
+
+      <div class="menu-container">
+        <div class="menu">
+          <ul>
+            <li>
+              <a href="/women_jeans_page">WOMEN</a>
+              <ul>
+                <li>
+                  <a href="http://marioloncarek.com">CLOTHING</a>
+                  <ul>
+                    <li><a href="http://marioloncarek.com">View All Clothing</a></li>
+                    <li><a href="#">Dresses</a></li>
+                    <li><a href="#">Jeans</a></li>
+                    <li><a href="#">Tops</a></li>
+                    <li><a href="#">Skirts</a></li>
+                    <li><a href="#">Trousers</a></li>
+                    <li><a href="#">Playsits & JumpSuits</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">ACCESSORIES</a>
+                  <ul>
+                    <li><a href="#">View All Accessories</a></li>
+                    <li><a href="#">Bags & Purses</a></li>
+                    <li><a href="#">Belts</a></li>
+                    <li><a href="#">NeckLace</a></li>
+                    <li><a href="#">Watches</a></li>
+                    <li><a href="#">Hats Gloves & Scarves</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">SHOES & BOOTS</a>
+                  <ul>
+                    <li><a href="#">View All Shoes & Boots</a></li>
+                    <li><a href="#">Heels</a></li>
+                    <li><a href="#">Boots</a></li>
+                    <li><a href="#">Sandals</a></li>
+                    <li><a href="#">Trainers</a></li>
+                    <li><a href="#">Beach</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">MUST HAVES</a>
+                  <ul>
+                    <li><a href="#"> Women WFH Wardrobe</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="http://marioloncarek.com">MEN</a>
+              <ul>
+                <li>
+                  <a href="#">CLOTHING</a>
+                  <ul>
+                    <li><a href="#">View All Clothing</a></li>
+                    <li><a href="#">Hoodies and SweatShirts</a></li>
+                    <li><a href="#">Jeans</a></li>
+                    <li><a href="#">Tops and T-Shirts</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">ACCESSORIES</a>
+                  <ul>
+                    <li><a href="#">View All Accessories</a></li>
+                    <li><a href="#">Sunglasses</a></li>
+                    <li><a href="#">Bags And Wallets</a></li>
+                    <li><a href="#">Ear Phones</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">SHOES & BOOTS</a>
+                  <ul>
+                    <li><a href="#">View All Shoes & Boots</a></li>
+                    <li><a href="#">Boots</a></li>
+                    <li><a href="#">Loafers</a></li>
+                    <li><a href="#">Trainers</a></li>
+                    <li><a href="#">All Stars</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">MUST HAVES</a>
+                <ul>
+                  <li><a href="#"> Men WFH Wardrobe</a></li>
+                </ul>
+              </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="http://marioloncarek.com">BEUTY</a>
+              <ul>
+                <li>
+                  <a href="#">MAKE UP</a>
+                  <ul>
+                    <li><a href="#">View All Make Up</a></li>
+                    <li><a href="#">Eye</a></li>
+                    <li><a href="#">Lips</a></li>
+                    <li><a href="#">Nails</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">ACCESSORIES</a>
+                  <ul>
+                    <li><a href="#">View All Accessories</a></li>
+                    <li><a href="#">Make Up Bag</a></li>
+                    <li><a href="#">Tools</a></li>
+                    <li><a href="#">Brushes And Blenders</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">COSMETICS</a>
+                  <ul>
+                    <li><a href="#">View All Cosmetics</a></li>
+                    <li><a href="#">Skin</a></li>
+                    <li><a href="#">Fragrance</a></li>
+                    <li><a href="#">Haircare</a></li>
+                    <li><a href="#">Training</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="http://marioloncarek.com">INSPIRATION</a>
+              <ul>
+                <li>
+                  <a href="#">INSPIRE ME</a>
+                  <ul>
+                    <li><a href="#">Trending News</a></li>
+                    <li><a href="#">Style Ethics</a></li>
+                    <li><a href="#">The LockDown</a></li>
+                    <li><a href="#">See All</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">THE EDIT</a>
+                  <ul>
+                    <li><a href="#">Woman</a></li>
+                    <li><a href="#">Man</a></li>
+                    <li><a href="#">Beauty</a></li>
+                    <li><a href="#">See All</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">COLLECTIONS</a>
+                  <ul>
+                    <li><a href="#">View All Cosmetics</a></li>
+                    <li><a href="#">Skin</a></li>
+                    <li><a href="#">Fragrance</a></li>
+                    <li><a href="#">Haircare</a></li>
+                    <li><a href="#">Training</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li><a href="http://marioloncarek.com">ZODDOCK CARES</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {% comment %} <form>
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button class="btn btn-primary" type="submit"></button>
+    </form> {% endcomment %}
+
+    <!-- checkout section  -->
+	<section class="checkout-section spad">
+		<div class="container">
+			<div class="row">
+      {% comment %} <div class="col-lg-8 order-2 order-lg-1">
+
+      </div> {% endcomment %}
+
+				<div class="col-lg-8 order-2 order-lg-1">
+          {% comment %} <form>
+          {% csrf_token %}
+          {{form|crispy}}
+          <button class="site-btn submit-order-btn">Place Order</button>
+          </form> {% endcomment %}
+
+					<form class="checkout-form" method="POST">
+          {% csrf_token%}
+						<div class="cf-title">Billing Address</div>
+						<div class="row">
+							<div class="col-md-7">
+								<p>*Billing Information</p>
+							</div>
+							<div class="col-md-5">
+
+               
+								<div class="cf-radio-btns address-rb">
+                 {% for value, name in form.fields.address_choice.choices %}
+									<div class="cfr-item">
+										<input  type="radio" name="address-choices" value={{value}} id="{{name}}">
+										<label for="{{name}}">{{name}}</label>
+									</div>
+                  {% endfor %}
+									{% comment %} <div class="cfr-item">
+										<input type="radio" name="pm" id="two">
+										<label for="two">Use a different address</label>
+									</div> {% endcomment %}
+
+								</div>
+
+							</div>
+						</div>
+						<div class="row address-inputs">
+							<div class="col-md-12">
+								{% comment %} <input type="text" placeholder="Home address"> {% endcomment %}
+                {{form.home_address}}
+								{% comment %} <input type="text" placeholder="Apartment address"> {% endcomment %}
+                {{form.apartment_address}}
+							</div>
+							<div class="col-md-6">
+								{% comment %} <input type="text" placeholder="District"> {% endcomment %}
+                {{form.district}}
+							</div>
+              <div class="col-md-6">
+								{% comment %} <input type="text" placeholder="Phone no."> {% endcomment %}
+                {{form.phone_number}}
+							</div>
+              <div class=" col-md-6 s">
+									<input {% if form.save_info.value %} checked {% endif %} type="checkbox" name="save_info" id=""> 
+                  {% comment %} {{form.save_info}} {% endcomment %}
+									<label for="one">Save Info</label>
+							</div>
+							{% comment %} <div class="col-md-6">
+								<input type="text" placeholder="">
+							</div> {% endcomment %}
+						</div>
+            
+						<div class="cf-title">Delievery Info</div>
+						<div class="row shipping-btns">
+							<div class="col-6">
+								<h4>Standard</h4>
+							</div>           
+							<div class="col-6">
+								<div class="">
+                {% for value, name in form.fields.delivery_choice.choices %}
+									<div class="">
+									<input   type="checkbox" name="deliver_choice" value="{{value}}" id="{{name}}" >
+									<label for="">{{name}}</label>
+									</div>
+                {% endfor %}
+								</div>
+							</div>
+							{% comment %} <div class="col-6">
+								<h4>Next day delievery  </h4>
+							</div>
+							<div class="col-6">
+								<div class="cf-radio-btns">
+									<div class="cfr-item">
+										<input type="radio" name="shipping" id="ship-2">
+										<label for="ship-2">UGX 20000</label>
+									</div>
+								</div>
+							</div> {% endcomment %}
+						</div>
+
+						<div class="cf-title">Payment</div>
+						<ul class="payment-list">
+            
+            
+							<li>
+              {% for value, name in form.fields.payment_option.choices %}
+              <div class="cfr-item col-md-6 s">
+									<input   type="radio" name="payment" value="{{value}}" id="{{name}}" >
+									<label for="{{name}}">{{name}}</label>
+							</div>
+              {% endfor %}
+              </li>
+            
+
+							{% comment %} <li>
+              <div class="cfr-item col-md-6 s">
+									<input type="radio" name="" id="one">
+									<label for="one">Stripe</label>
+							</div>
+              </li>
+							<li><div class=" col-md-6 ">
+									<input type="radio" name="" id="one">
+									<label for="one">Cash on Delivery</label>
+							</div>
+              </li> {% endcomment %}
+						</ul>
+
+						<button class="site-btn submit-order-btn">Place Order</button>
+					</form>
+				</div>
+				<div class="col-lg-4 order-1 order-lg-2">
+					<div class="checkout-cart">
+						<h3>Your Cart</h3>
+            <form class="promo-code-form" method="POST" action="{% url 'add-coupon' %}">
+            {% csrf_token %}
+						{% comment %} <input type="text" placeholder="Enter promo code"> {% endcomment %}
+            {{couponform.code}}
+						<button type="sumbit">Redeem</button>
+					</form>
+           
+						<ul class="product-list">
+               {% for order_item in order.items.all %}
+							<li>
+								<div class="pl-thumb"><img src="{{order_item.item.image.url}}" alt=""></div>
+								<h6>{{order_item.item.title}}      x{{order_item.quantity}}</h6>
+								<p>UGX{{order_item.get_final_price}}</p>
+              </li>
+              {% endfor %}
+							<!-- <li>
+								<div class="pl-thumb"><img src="img/cart/2.jpg" alt=""></div>
+								<h6>Animal Print Dress</h6>
+								<p>$45.90</p>
+							</li> -->
+						</ul>
+              
+						<ul class="price-list">
+							{% comment %} <li>Total<span>UGX</span></li> {% endcomment %}
+							<li>Shipping<span>free</span></li>
+							<li class="total">Total<div>Shs{{order.get_total}}</div></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- checkout section end -->
+
+
+     <footer class="footer">
+
+        <div class="back_to_top_div">
+          <a class="btn btn-outline back_to_top_btn" style="color:white;  font-weight:small ;font-size: bold;"><b> BACK TO TOP <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up back_to_top_svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+            <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8 3.707 5.354 6.354a.5.5 0 1 1-.708-.708l3-3z"/>
+          </svg></b></a>
+        </div>
+        <hr class="footer_socket"></hr>
+
+        <div class="container footer_container">
+                  <div class="row footer_row">
+                    <div class="col-lg-3 col-md-6 col-xs-1 col-sm-6 footer_column">
+                        <ul>
+                          <li ><h6 class="footer_header"> HELP</h6></li>
+                          <li class="footer_list_item">Customer Service</li>
+                          <li class="footer_list_item">SiteMap</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-xs-1 col-sm-6   footer_column">
+                        <ul>
+                          <li><h6 class="footer_header"> USEFUL INFORMATION</h6></li>
+                          <li class="footer_list_item">Terms Of Use</li>
+                          <li class="footer_list_item">Privacy And Cookies</li>
+                          <li class="footer_list_item">Media Enquiries</li>
+                          <li class="footer_list_item">Franchise</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-xs-1 col-sm-6  footer_column">
+                        <ul>
+                          <li class="footer_list_item"><h6 class="footer_header"> INSIDE ZODDOCK</h6></li>
+                          <li class="footer_list_item">About Us</li>
+                          <li class="footer_list_item">Careers At Zoddock</li>
+                          <li class="footer_list_item">Suppliers</li>
+                          <li class="footer_list_item">UG Gender Pay Report</li>
+                          <li class="footer_list_item">Modern Slavery Act</li>
+                          <li class="footer_list_item">Cruelty Free International</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-xs-1 col-sm-6  footer_column">
+                        <ul>
+                          <li><h6 class="footer_header"> PRESS RELEASES</h6></li>
+                          <li class="footer_list_item">Arthur Ryan</li>
+                          <li class="footer_list_item">Zoddock 50</li>
+                          <li class="footer_list_item">Zoddock * UNICEF</li>
+                        </ul>
+                    </div>
+                  </div>
+        </div>
+
+        <div class="footer_icon_container">
+        <div class="container">
+        <div class="row footer_icon_row">
+          <div class=" col-lg-6 col-md-6 col-xs-6 col-sm-6 footer_icon_row_brand_name" style="font-weight: lighter; color:black;">
+            2020 &#169; ZODDOCK STORES LIMITED
+          </div>
+          <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 footer_icon_column">
+              <div class="footer_icon_column_div">
+                  <i class="fa fa-facebook footer_icon"></i>
+                  <i class="fa fa-twitter footer_icon"></i>
+                  <i class="fa fa-instagram footer_icon"></i>
+                  <i class="fa fa-youtube-play footer_icon"></i>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="js/vendor/jquery-1.12.0.min.js"><\/script>'
+        );
+    </script>
+
+
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+    <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+    <script src="{% static 'js/megamenu.js' %}"></script>
+  </body>
+  </body>
+</html>
