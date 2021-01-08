@@ -1,0 +1,530 @@
+{% load static %}
+{% load cart_template_tags %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <title>Travello</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Travello template project" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}"/>
+    <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'styles/yoo.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}"/>
+    <linkrel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'static/css/ionicons.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/owl.carousel.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'styles/jquery-ui.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'styles/animate.css' %}"/>
+    
+    <linkhref="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet"type="text/css"/>
+
+    <!-- JS -->
+    <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' %}"></script>
+    <script>
+      window.Modernizr ||
+        document.write(
+          <script src=  "{% static 'js/vendor/modernizr-2.8.3.min.js' %}" ></script>
+        );
+    </script>
+  </head>
+
+  <body>
+
+    <div class="header_top">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-6 col-lg-6">             
+              <span>
+								<i class="flaticon-bag"></i>						
+								<a href="#">Buy Gift Card</a>
+              </span>
+              <span>
+								<i class="flaticon-bag"></i>						
+								<a href="#">Store Locator</a>
+              </span>
+            </div>
+
+           
+
+            <div class="col-xl-6 col-lg-6 text-lg-right">
+              <span>
+                <i class="flaticon-profile"></i>
+                {% if user.is_authenticated %}
+                 <span><a href="accounts/logout">LogOut<a></span>
+                <span> Hello, {{user.first_name}}</span>
+                {% else %}
+                <a href="accounts/login">Sign</a> In or <a href="accounts/register">Create Account</a>
+                {% endif %}  
+              </span>
+  
+              <span>
+                <div class="shopping-card">
+                  <a href="#"><i class="flaticon-bag"></i></a>
+                  <span>{{request.user|cart_item_count}}</span>
+                </div>
+                <a href="#">Shopping Cart</a>
+              </span>
+            </div>
+            </div>           
+          </div>
+        </div>
+        
+      
+        <div class="brand_row ">
+          <div class=" text-center">
+            <div class="brand_row_text ">
+              <h2>ZODDOCK</h2>
+            </div>
+          </div>
+        </div>
+        
+        
+      <div class="menu-container">
+        <div class="menu">
+          <ul>
+            <li>
+              <a href="http://marioloncarek.com">WOMEN</a>
+              <ul>
+                <li>
+                  <a href="http://marioloncarek.com">CLOTHING</a>
+                  <ul>
+                    <li><a href="http://marioloncarek.com">View All Clothing</a></li>
+                    <li><a href="#">Dresses</a></li>
+                    <li><a href="#">Jeans</a></li>
+                    <li><a href="#">Tops</a></li>
+                    <li><a href="#">Skirts</a></li>
+                    <li><a href="#">Trousers</a></li>
+                    <li><a href="#">Playsits & JumpSuits</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">ACCESSORIES</a>
+                  <ul>
+                    <li><a href="#">View All Accessories</a></li>
+                    <li><a href="#">Bags & Purses</a></li>
+                    <li><a href="#">Belts</a></li>
+                    <li><a href="#">NeckLace</a></li>
+                    <li><a href="#">Watches</a></li>
+                    <li><a href="#">Hats Gloves & Scarves</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">SHOES & BOOTS</a>
+                  <ul>
+                    <li><a href="#">View All Shoes & Boots</a></li>
+                    <li><a href="#">Heels</a></li>
+                    <li><a href="#">Boots</a></li>
+                    <li><a href="#">Sandals</a></li>
+                    <li><a href="#">Trainers</a></li>
+                    <li><a href="#">Beach</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">MUST HAVES</a>
+                  <ul>
+                    <li><a href="#"> Women WFH Wardrobe</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="http://marioloncarek.com">MEN</a>
+              <ul>
+                <li>
+                  <a href="#">CLOTHING</a>
+                  <ul>
+                    <li><a href="#">View All Clothing</a></li>
+                    <li><a href="#">Hoodies and SweatShirts</a></li>
+                    <li><a href="#">Jeans</a></li>
+                    <li><a href="#">Tops and T-Shirts</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">ACCESSORIES</a>
+                  <ul>
+                    <li><a href="#">View All Accessories</a></li>
+                    <li><a href="#">Sunglasses</a></li>
+                    <li><a href="#">Bags And Wallets</a></li>
+                    <li><a href="#">Ear Phones</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">SHOES & BOOTS</a>
+                  <ul>
+                    <li><a href="#">View All Shoes & Boots</a></li>
+                    <li><a href="#">Boots</a></li>
+                    <li><a href="#">Loafers</a></li>
+                    <li><a href="#">Trainers</a></li>
+                    <li><a href="#">All Stars</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">MUST HAVES</a>
+                <ul>
+                  <li><a href="#"> Men WFH Wardrobe</a></li>
+                </ul>
+              </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="http://marioloncarek.com">BEUTY</a>
+              <ul>
+                <li>
+                  <a href="#">MAKE UP</a>
+                  <ul>
+                    <li><a href="#">View All Make Up</a></li>
+                    <li><a href="#">Eye</a></li>
+                    <li><a href="#">Lips</a></li>
+                    <li><a href="#">Nails</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">ACCESSORIES</a>
+                  <ul>
+                    <li><a href="#">View All Accessories</a></li>
+                    <li><a href="#">Make Up Bag</a></li>
+                    <li><a href="#">Tools</a></li>
+                    <li><a href="#">Brushes And Blenders</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">COSMETICS</a>
+                  <ul>
+                    <li><a href="#">View All Cosmetics</a></li>
+                    <li><a href="#">Skin</a></li>
+                    <li><a href="#">Fragrance</a></li>
+                    <li><a href="#">Haircare</a></li>
+                    <li><a href="#">Training</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="http://marioloncarek.com">INSPIRATION</a>
+              <ul>
+                <li>
+                  <a href="#">INSPIRE ME</a>
+                  <ul>
+                    <li><a href="#">Trending News</a></li>
+                    <li><a href="#">Style Ethics</a></li>
+                    <li><a href="#">The LockDown</a></li>
+                    <li><a href="#">See All</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">THE EDIT</a>
+                  <ul>
+                    <li><a href="#">Woman</a></li>
+                    <li><a href="#">Man</a></li>
+                    <li><a href="#">Beauty</a></li>
+                    <li><a href="#">See All</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">COLLECTIONS</a>
+                  <ul>
+                    <li><a href="#">View All Cosmetics</a></li>
+                    <li><a href="#">Skin</a></li>
+                    <li><a href="#">Fragrance</a></li>
+                    <li><a href="#">Haircare</a></li>
+                    <li><a href="#">Training</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li><a href="">ZODDOCK CARES</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- product section -->
+	<section class="product-section">
+		<div class="container">
+			<div class="back-link">
+				<a href="./category.html"> &lt;&lt; Back to Category</a>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="product-pic-zoom">
+						<img class="product-big-img" src="{{ item.image.url}}" style="height:775px; width:500px" alt="">
+					</div>
+					<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
+						<div class="product-thumbs-track">
+							<div class="pt active" data-imgbigurl="img/single-product/1.jpg"><img src="img/single-product/thumb-1.jpg" alt=""></div>
+							<div class="pt" data-imgbigurl="img/single-product/2.jpg"><img src="img/single-product/thumb-2.jpg" alt=""></div>
+							<div class="pt" data-imgbigurl="img/single-product/3.jpg"><img src="img/single-product/thumb-3.jpg" alt=""></div>
+							<div class="pt" data-imgbigurl="img/single-product/4.jpg"><img src="img/single-product/thumb-4.jpg" alt=""></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 product-details">
+					<h2 class="p-title">{{item.title}}</h2>
+					<h3 class="p-price">{{item.price}}</h3>
+					<h4 class="p-stock">Available: <span>In Stock</span></h4>
+					<div class="p-rating">
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o fa-fade"></i>
+					</div>
+					<div class="p-review">
+						<a href="">3 reviews</a>|<a href="">Add your review</a>
+					</div>
+					<div class="fw-size-choose">
+						<p>Size</p>
+						<div class="sc-item">
+							<input type="radio" name="sc" id="xs-size">
+							<label for="xs-size">32</label>
+						</div>
+						<div class="sc-item">
+							<input type="radio" name="sc" id="s-size">
+							<label for="s-size">34</label>
+						</div>
+						<div class="sc-item">
+							<input type="radio" name="sc" id="m-size" checked="">
+							<label for="m-size">36</label>
+						</div>
+						<div class="sc-item">
+							<input type="radio" name="sc" id="l-size">
+							<label for="l-size">38</label>
+						</div>
+						<div class="sc-item disable">
+							<input type="radio" name="sc" id="xl-size" disabled>
+							<label for="xl-size">40</label>
+						</div>
+						<div class="sc-item">
+							<input type="radio" name="sc" id="xxl-size">
+							<label for="xxl-size">42</label>
+						</div>
+					</div>
+					<div class="quantity">
+						<p>Quantity</p>
+                        <div class="pro-qty"><input type="text" value="1"></div>
+                    </div>
+					<a href="{{ item.get_add_to_cart_url}}" class="site-btn">ADD TO CART</a>
+					<div id="accordion" class="accordion-area">
+						<div class="panel">
+							<div class="panel-header" id="headingOne">
+								<button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">information</button>
+							</div>
+							<div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+								<div class="panel-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+									<p>Approx length 66cm/26" (Based on a UK size 8 sample)</p>
+									<p>Mixed fibres</p>
+									<p>The Model wears a UK size 8/ EU size 36/ US size 4 and her height is 5'8"</p>
+								</div>
+							</div>
+						</div>
+						<div class="panel">
+							<div class="panel-header" id="headingTwo">
+								<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">care details </button>
+							</div>
+							<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+								<div class="panel-body">
+									<img src="./img/cards.png" alt="">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+								</div>
+							</div>
+						</div>
+						<div class="panel">
+							<div class="panel-header" id="headingThree">
+								<button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">shipping & Returns</button>
+							</div>
+							<div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+								<div class="panel-body">
+									<h4>7 Days Returns</h4>
+									<p>Cash on Delivery Available<br>Home Delivery <span>3 - 4 days</span></p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="social-sharing">
+						<a href=""><i class="fa fa-google-plus"></i></a>
+						<a href=""><i class="fa fa-pinterest"></i></a>
+						<a href=""><i class="fa fa-facebook"></i></a>
+						<a href=""><i class="fa fa-twitter"></i></a>
+						<a href=""><i class="fa fa-youtube"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- product section end -->
+
+    <!-- RELATED PRODUCTS section -->
+	<section class="related-product-section">
+		<div class="container">
+			<div class="section-title">
+				<h2>RELATED PRODUCTS</h2>
+			</div>
+			<div class="product_slider owl-carousel">
+				<div class="product_item">
+					<div class="pi-pic ">
+						<img src="images/shoe2.jpg" style="height:200px; width:auto"alt="" >
+						<div class="pi-links">
+							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6>$35,00</h6>
+						<p>Flamboyant Pink Top </p>
+					</div>
+				</div>
+				<div class="product_item">
+					<div class="pi-pic" >
+						<div class="tag-new">New</div>
+						<img src="images/shoe2.jpg" style="height:200px; width:auto" alt="">
+						<div class="pi-links">
+							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6>$35,00</h6>
+						<p>Black and White Stripes Dress</p>
+					</div>
+				</div>
+				<div class="product_item">
+					<div class="pi-pic">
+						<img src="images/shoe2.jpg" style="height:200px; width:auto" alt="">
+						<div class="pi-links">
+							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6>$35,00</h6>
+						<p>Flamboyant Pink Top </p>
+					</div>
+				</div>
+				<div class="product_item">
+						<div class="pi-pic">
+							<img src="images/shoe2.jpg" style="height:200px; width:auto" alt="">
+							<div class="pi-links">
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							</div>
+						</div>
+						<div class="pi-text">
+							<h6>$35,00</h6>
+							<p>Flamboyant Pink Top </p>
+						</div>
+					</div>
+				<div class="product_item">
+					<div class="pi-pic">
+						<img src="images/shoe2.jpg" style="height:200px; width:auto" alt="">
+						<div class="pi-links">
+							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6>$35,00</h6>
+						<p>Flamboyant Pink Top </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- RELATED PRODUCTS section end -->
+    
+
+     <footer class="footer">
+
+        <div class="back_to_top_div">
+          <a class="btn btn-outline back_to_top_btn" style="color:white;  font-weight:small ;font-size: bold;"><b> BACK TO TOP <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up back_to_top_svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+            <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8 3.707 5.354 6.354a.5.5 0 1 1-.708-.708l3-3z"/>
+          </svg></b></a>
+        </div>   
+        <hr class="footer_socket"></hr>
+  
+        <div class="container footer_container">           
+                  <div class="row footer_row">
+                    <div class="col-lg-3 col-md-6 col-xs-1 col-sm-6 footer_column">
+                        <ul>
+                          <li ><h6 class="footer_header"> HELP</h6></li>
+                          <li class="footer_list_item">Customer Service</li>
+                          <li class="footer_list_item">SiteMap</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-xs-1 col-sm-6   footer_column">
+                        <ul>
+                          <li><h6 class="footer_header"> USEFUL INFORMATION</h6></li>
+                          <li class="footer_list_item">Terms Of Use</li>
+                          <li class="footer_list_item">Privacy And Cookies</li>
+                          <li class="footer_list_item">Media Enquiries</li>
+                          <li class="footer_list_item">Franchise</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-xs-1 col-sm-6  footer_column">
+                        <ul>
+                          <li class="footer_list_item"><h6 class="footer_header"> INSIDE ZODDOCK</h6></li>
+                          <li class="footer_list_item">About Us</li>
+                          <li class="footer_list_item">Careers At Zoddock</li>
+                          <li class="footer_list_item">Suppliers</li>
+                          <li class="footer_list_item">UG Gender Pay Report</li>
+                          <li class="footer_list_item">Modern Slavery Act</li>
+                          <li class="footer_list_item">Cruelty Free International</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-xs-1 col-sm-6  footer_column">
+                        <ul>
+                          <li><h6 class="footer_header"> PRESS RELEASES</h6></li>
+                          <li class="footer_list_item">Arthur Ryan</li>
+                          <li class="footer_list_item">Zoddock 50</li>
+                          <li class="footer_list_item">Zoddock * UNICEF</li>
+                        </ul>
+                    </div>
+                  </div>
+        </div>
+         
+        <div class="footer_icon_container">
+        <div class="container">
+        <div class="row footer_icon_row">
+          <div class=" col-lg-6 col-md-6 col-xs-6 col-sm-6 footer_icon_row_brand_name" style="font-weight: lighter; color:black;">
+            2020 &#169; ZODDOCK STORES LIMITED
+          </div>
+          <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 footer_icon_column">
+              <div class="footer_icon_column_div">
+                  <i class="fa fa-facebook footer_icon"></i>
+                  <i class="fa fa-twitter footer_icon"></i>
+                  <i class="fa fa-instagram footer_icon"></i>
+                  <i class="fa fa-youtube-play footer_icon"></i>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+      </footer>
+  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="js/vendor/jquery-1.12.0.min.js"><\/script>'
+        );
+    </script>
+
+    
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+    <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="{% static 'js/megamenu.js' %}"></script>
+  </body>
+</html>

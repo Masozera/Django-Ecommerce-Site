@@ -1,0 +1,21 @@
+{% block content %}
+<h1>Payment Page</h1>
+
+
+
+<form action="{% url 'charge' %}" method="post">
+{% csrf_token %}
+
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+data-key="{{ stripe_key }}"
+data-description="Charge"
+data-amount="3900"
+data-locale="auto"
+>
+
+</script>
+
+</form>
+
+
+{% endblock content %}
